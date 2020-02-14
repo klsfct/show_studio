@@ -1,0 +1,1621 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>人工智能创新工作室</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> -->
+    <link rel="stylesheet" type="text/css" href="./static/css/stylepc.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/jq22-demo.css">
+    <link rel="stylesheet" href="./static/css/tabs-vertical.css">
+    <link type="text/css" rel="stylesheet" href="./static/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./static/css/demo.css">
+    <link type="text/css" rel="stylesheet" href="./static/css/colorfulTab.min.css">
+    <link rel="stylesheet" href="./static/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- 地图 -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+    <!-- 使用CSS样式来控制div布局 -->
+    <style type="text/css">
+        /*定义全局的div布局*/
+
+        /* *{font-family:'黑体' !important} */
+
+        div#global {
+            /*设置宽度，设置百分比可以根据浏览器自适应宽度*/
+            width: 100%;
+            /*设置高度，950px是设置是实体高度，不能自适应的*/
+            /* height: 1000px; */
+            height: 100%;
+            /*设置背景颜色，方便区分布局*/
+            font-family: '黑体'
+        }
+
+        /*定义头部布局，前面的div可以不用写，#号前面默认有个id，凡事定义了id的标签，都可以用#号来表示*/
+
+        #heading {
+            width: 100%;
+            height: 150px;
+            background-color: #ffffff;
+            background: url('./static/img/banner.jpg') no-repeat center;
+            background-color: #FFFFFF;
+        }
+
+        #content_body {
+            width: 100%;
+            height: 100%;
+            float: right;
+            background-color: #FFFFFF;
+        }
+
+        #floor {
+            /*删除浮动，不然会被其他的浮动给遮住*/
+            clear: both;
+            height: 20px;
+        }
+
+        #table1 {
+            width: 100%;
+            text-align: center;
+        }
+
+        thead {
+            color: white;
+            text-indent: 14px;
+            text-align: left;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgba(220, 220, 220, 0.1);
+            /* green, 10% alpha */
+        }
+
+        body {
+            color: #222;
+            -webkit-text-size-adjust: none;
+            font-family: '黑体'
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        blockquote,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        pre,
+        form,
+        fieldset,
+        legend,
+        button,
+        input,
+        textarea,
+        th,
+        td,
+        iframe {
+            margin: 0;
+            padding: 0;
+            /* font-family: '黑体' */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 100%;
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            /* font-family: Tahoma, Arial, Roboto, ”Droid Sans”, ”Helvetica Neue”, ”Droid Sans Fallback”, ”Heiti SC”, sans-self; */
+            font-size: 62.5%;
+            line-height: 1.5;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .section-wrap {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            transition: transform 1s cubic-bezier(0.86, 0, 0.03, 1);
+            -webkit-transition: -webkit-transform 1s cubic-bezier(0.86, 0, 0.03, 1);
+        }
+
+        .section-wrap .section {
+            position: relative;
+            width: 100%;
+            height: 98%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .section-wrap .section .title {
+            width: 100%;
+            position: absolute;
+            top: 10%;
+            color: #fff;
+            font-size: 2.4em;
+            text-align: center;
+        }
+
+        .section-wrap .section .title p {
+            padding: 0 4%;
+            opacity: 0
+        }
+
+        .section-wrap .section .title.active .tit {
+            opacity: 1;
+            transform: translateY(-25px);
+            -webkit-transform: translateY(-25px);
+            transition: all 2s cubic-bezier(0.86, 0, 0.8, 1);
+            -webkit-transition: all 2s cubic-bezier(0.86, 0, 0.8, 1);
+        }
+
+        .put-section-0 {
+            transform: translateY(0);
+            -webkit-transform: translateY(0);
+        }
+
+        .put-section-1 {
+            transform: translateY(-100%);
+            -webkit-transform: translateY(-100%);
+        }
+
+        .put-section-2 {
+            transform: translateY(-200%);
+            -webkit-transform: translateY(-200%);
+        }
+
+        .put-section-3 {
+            transform: translateY(-300%);
+            -webkit-transform: translateY(-300%);
+        }
+
+        /* .put-section-4 {
+            transform: translateY(-400%);
+            -webkit-transform: translateY(-400%);
+        } */
+
+        .section-btn {
+            width: 14px;
+            position: fixed;
+            right: 4%;
+            top: 50%;
+        }
+
+        .section-btn li {
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+            text-indent: -9999px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            margin-bottom: 12px;
+            background: #BD362F;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .section-btn li.on {
+            background: #fff
+        }
+
+        .arrow {
+            opacity: 1;
+            animation: arrow 3s cubic-bezier(0.5, 0, 0.1, 1) infinite;
+            -webkit-animation: arrow 3s cubic-bezier(0.5, 0, 0.1, 1) infinite;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            position: absolute;
+            bottom: 30%;
+            left: 50%;
+            margin-left: -30px;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            -webkit-border-radius: 100%;
+            line-height: 80px;
+            text-align: center;
+            font-size: 100px;
+            color: #fff;
+            border: 1px solid #fff;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .arrow:hover {
+            animation-play-state: paused;
+            -webkit-animation-play-state: paused;
+        }
+
+        @keyframes arrow {
+            %0,
+            %100 {
+                bottom: 140px;
+                opacity: 1;
+            }
+            50% {
+                bottom: 200px;
+                opacity: .5
+            }
+        }
+
+        @-webkit-keyframes arrow {
+            %0,
+            %100 {
+                bottom: 140px;
+                opacity: 1;
+            }
+            50% {
+                bottom: 200px;
+                opacity: .5
+            }
+        }
+
+        .box1 {
+            width: 60%;
+            height: 100px;
+            margin-left: 100px;
+            border: 3px solid #0490d2;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .dbt {
+            font-size: 30px;
+            display: block;
+            margin: 30px auto;
+        }
+
+        .xbt {
+            font-size: 24px;
+            text-align: left;
+            display: block;
+            padding-left: 20px;
+        }
+
+        #bt1 {
+            opacity: 1;
+            font-size: 30px;
+            line-height: 40px;
+            text-align: left;
+            padding-left: 120px;
+        }
+
+        #bt {
+            font-weight: 700;
+            font-size: 60px;
+        }
+
+        #dbox {
+            /* width: 1170px; */
+            height: 500px;
+            margin: 50px auto;
+        }
+
+        #demodbt {
+            /* line-height: 50px;
+            margin-top: 20px;
+            height: 100px;
+            font-size: 30px; */
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            padding: 0 0 0 10px;
+            font-size: 22px;
+        }
+
+        #demodbt:hover {
+            /* background: rgba(0, 47, 104, 0.8); */
+            /* background:#eee; */
+            color: #337ab7;
+            font-size: 24px;
+            /* color: #fff; */
+            /* border: 1px solid rgba(223,190,106,0); */
+            /* color: white; */
+            background-position: 99% 50%;
+        }
+
+        #icon {
+            margin-right: 10px;
+            color: rgba(0, 47, 104, 0.8)
+        }
+
+        #demoxbt {
+            font-size: 18px;
+            clear: both;
+            /* border-radius: 10px; */
+        }
+
+        .pl {
+            height: 6%
+        }
+
+        .right-li {
+            width: 30%;
+            float: left;
+            margin: 10px;
+            /* border: 1px solid #ddd; */
+            /* border-radius: 10px; */
+        }
+
+        #li-bt {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            /* border-bottom: 2px solid #afafaf; */
+            color: #333;
+            /* background:#f5f5f5; */
+            border-bottom: 1px solid #ddd;
+            /* border-radius: 10px; */
+            /* 悬停渐变 */
+            position: relative;
+            -webkit-transition: all 0.7s ease-out;
+            transition: all 0.7s ease-out;
+            background: -webkit-linear-gradient(180deg, #337ab7, rgba(61, 166, 236, 0.8), rgba(78, 101, 204, 0), rgba(84, 87, 228, 0));
+            background-position: 1% 50%;
+            background-size: 300% 300%;
+            text-decoration: none;
+            /* border: 1px solid #337ab7; */
+        }
+
+        #li-bt:hover {
+            /* background:#337ab7; */
+            color: #fff;
+            background-position: 99% 50%;
+            /* border: 1px solid #fff; */
+        }
+
+        @keyframes clipMe {
+            0%,
+            100% {
+                clip: rect(0px, 220.0px, 2px, 0px);
+            }
+            25% {
+                clip: rect(0px, 2px, 220.0px, 0px);
+            }
+            50% {
+                clip: rect(218.0px, 220.0px, 220.0px, 0px);
+            }
+            75% {
+                clip: rect(0px, 220.0px, 220.0px, 218.0px);
+            }
+        }
+
+        #icon-left {
+            margin: 0 10px 0 10px;
+            color: rgba(0, 47, 104, 0.8);
+        }
+
+        #icon-right {
+            float: right;
+            margin-right: 10px;
+            line-height: 50px;
+        }
+
+        #li-box {
+            width: 100%;
+            height: 240px;
+            display: block;
+            background: yellow;
+            /* margin-top: 10px; */
+            border-radius: 0 0 10px 10px;
+        }
+
+        #li-box img {
+            background-size: 100% 100%;
+        }
+
+        #outer-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        #inner-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: -17px;
+            bottom: 0;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        #bg-2 {
+            position: absolute;
+            left: 25px;
+            top: 80px;
+            width: 100%;
+            height: 100%
+        }
+
+        .colorful-tab-menu-item {
+            /* border-bottom: 2px solid rgba(255,255,255,0.2) */
+            box-shadow: 0 -2px 0 rgba(255, 255, 255, 0.2) inset
+        }
+
+        .colorful-tab-menu-item a {
+            height: 100%
+        }
+
+        /* @media (max-width:776px) {
+
+            #demoli {
+                height: 60px;
+            }
+
+            #demodbt {
+                font-size: 10px;
+                height: 20px;
+                line-height: 20px;
+            }
+
+            #bg-2 {
+                top: 220px;
+            }
+
+            #demoxbt {
+                font-size: 10px;
+            }
+
+            #li-box {
+                height: 100px;
+            }
+        } */
+
+        /* 按钮 */
+
+        .dj {
+            -webkit-animation: free_download 1s linear alternate infinite;
+            animation: free_download 1s linear alternate infinite;
+            width: 12%;
+            height: 50px;
+            line-height: 50px;
+            /* background:rgba(0, 47, 104, 0.8); */
+            background: #0490d2;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            margin: auto;
+            letter-spacing: 2px;
+            font-weight: normal;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .dj:hover {
+            background: #ffc601;
+            color: #fff;
+        }
+
+        @-webkit-keyframes free_download {
+            0% {
+                -webkit-transform: scale(0.9);
+            }
+            100% {
+                -webkit-transform: scale(1);
+            }
+        }
+
+        @keyframes free_download {
+            0% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .black_overlay {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 1001;
+            -moz-opacity: 0.8;
+            opacity: .80;
+            filter: alpha(opacity=88);
+        }
+
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            padding: 20px;
+            border: 5px solid orange;
+            background-color: white;
+            z-index: 1002;
+            overflow: auto;
+        }
+
+        .cardContainer:hover {
+            background-color: #F0FFFF;
+            cursor: pointer;
+            border-radius: 5px
+        }
+
+        #dbox .dbox1-s {
+            font-size: 70px;
+            margin-top: 50px;
+            display: block;
+            font-weight: bold;
+        }
+
+        #dbox .dbox1-p {
+            opacity: 1;
+            margin-top: 100px;
+            font-size: 50px;
+        }
+
+        #dbox .dbox3-p1 {
+            margin-top: 50px;
+            padding-left: 120px;
+        }
+
+        #dbox .dbox3-p2 {
+            padding-left: 120px;
+            margin-top: 20px;
+        }
+
+        #dbox .dbox4-s {
+            font-size: 60px;
+            margin-top: 160px;
+            display: block;
+            font-weight: bold
+        }
+
+        #demo-zt {
+            padding: 0 100px 0 100px;
+            margin-top: 20px;
+            height: 100%;
+            color: #333;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        #demo-yyfx {
+            height: 10%;
+        }
+
+        #demo-bt {
+            text-align: left;
+            height: 50px;
+            line-height: 50px;
+            font-size: 26px;
+            letter-spacing: 10px;
+            background: #f7f7f7;
+        }
+
+        #bg-3 {
+            position: absolute;
+            left: 25px;
+            top: 80px;
+            width: 100%;
+            height: 100%;
+            color: #000;
+            overflow-y: auto;
+        }
+
+        #gywm-bt {
+            padding: 0 100px 0 100px;
+            margin-top: 20px;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        #gywm-p {
+            font-size: 20px;
+            font-weight: normal;
+            text-indent: 29px;
+            text-align: left;
+            line-height: 200%;
+        }
+
+        #gywm-wwxl {
+            padding: 0 100px 0 100px;
+            width: 100%;
+            height: 20%;
+            background: #fff;
+        }
+
+        #gywm-xbt {
+            text-align: left;
+            width: 25%;
+            margin: auto;
+        }
+
+        #wxxl-xbt {
+            height: 30px;
+            line-height: 40px;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        #gywm-tz {
+            width: 100%;
+            height: 80%;
+            overflow-y: auto;
+        }
+
+        #gywm-lxwm {
+            padding: 0 100px 0 100px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        #gywm-lxwm .ditu {
+            float: left;
+            width: 50%;
+            height: 400px;
+            border: #ccc solid 1px;
+        }
+
+        #yclx {
+            height: 400px;
+            width: 50%;
+            float: right;
+            padding-left: 100px;
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        #lx-li {
+            margin-top: 45px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #e7e7e7;
+            width: 100%;
+        }
+
+        #gywm-dbt {
+            margin-bottom: 20px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 26px;
+            letter-spacing: 10px;
+            background: #f7f7f7;
+        }
+
+        .colorful-tab-wrapper.flatline .colorful-tab-menu-item a {
+            box-shadow: none;
+        }
+
+        .colorful-tab-wrapper.flatline .colorful-tab-menu-item.active a {
+            border-bottom: 2px solid #fff;
+            box-shadow: none;
+        }
+
+        .colorful-tab-menu-item {
+            box-shadow: none;
+        }
+
+        .colorful-tab-menu {
+            box-shadow: 0 -2px 0 rgba(255, 255, 255, 0.2) inset;
+        }
+
+        #wxxl-xbt:hover {
+            color: rgba(0, 47, 104, 0.8)
+        }
+
+        #dbox .dw {
+            margin-top: 30px;
+            line-height: 200%
+        }
+
+        #banner {
+            width: 100%;
+            height: 80px;
+            background: url(static/img/tab5.jpg);
+            line-height: 80px;
+            clear: both;
+        }
+
+        #banner-img {
+            float: left;
+            height: 80px;
+            width: 80px;
+        }
+
+        #banner-p {
+            float: left;
+            font-size: 40px;
+            color: #ffffff
+        }
+
+        #light img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive */
+
+        /* 首页 */
+
+        @media screen and (min-width:300px) and (max-width:1074px) {
+            /* 导航 */
+            #banner {
+                height: 60px;
+                line-height: 60px;
+            }
+            #banner-img {
+                width: 60px;
+                height: 60px;
+            }
+            .colorful-tab-wrapper {
+                width: 100%;
+                height: 100%;
+            }
+            .colorful-tab-menu {
+                width: 100%;
+                height: 6%;
+            }
+            .colorful-tab-menu li {
+                width: 25%;
+            }
+            .colorful-tab-menu li a {
+                width: 100%;
+                font-size: 16px;
+                padding: 5px 0;
+            }
+            #banner-p {
+                font-size: 20px;
+            }
+            /* 模块 */
+            /* .section-wrap .section{
+                height:70%;
+            } */
+            .section-btn li {
+                width: 10px;
+                height: 10px;
+            }
+            .section-btn {
+                top: 30%;
+                right: 1%;
+            }
+            .arrow {
+                height: 70px;
+                width: 70px;
+                line-height: 56px;
+                font-size: 70px;
+                bottom: 15%;
+            }
+            .section-wrap .section .title {
+                top: 0;
+            }
+            #dbox {
+                padding: 0 5% 0 5%;
+            }
+            .section-1 #dbox span {
+                font-size: 40px !important;
+                margin-top: 30% !important;
+            }
+            .section-1 #dbox p {
+                font-size: 20px !important;
+                line-height: 40px;
+                margin-top: 20% !important;
+            }
+            /* 模块二 */
+            #bt1 {
+                padding: 0 !important;
+                font-size: 18px;
+            }
+            #bt {
+                font-size: 40px;
+            }
+            .section-wrap .section .title p {
+                padding: 0;
+            }
+            #dbox .dw {
+                margin-top: 2%;
+            }
+            /* 模块三 */
+            #dbox .dbox3-p2 {
+                margin-top: 0;
+            }
+            #dbox .dbox3-p1 {
+                margin-top: 2%;
+            }
+            /* 模块四 */
+            .section-4 #dbox span {
+                font-size: 30px !important;
+                line-height: 40px;
+            }
+            /* 案例分享 */
+            #bg-1 {
+                left: 1.5%;
+                /* top: 50px; */
+            }
+            /* demo示例 */
+            #bg-2 {
+                left: 1.5%;
+                top: 50px;
+            }
+            .right-li {
+                width: 45%;
+                margin: 5px;
+            }
+            #demo-zt {
+                padding: 0 10px 0 10px;
+            }
+            #demoxbt {
+                font-size: 10px;
+            }
+            #demo-yyfx {
+                height: 15%;
+            }
+            #demo-bt {
+                font-size: 18px;
+                letter-spacing: 5px;
+            }
+            #last {
+                width: 60%;
+            }
+            /* gif图 */
+            /* #light img{
+                transform:rotate(90deg);
+                width:0;
+            } */
+            #light {
+                width: 80%;
+                height: 80%;
+                top: 10%;
+                left: 10%;
+            }
+            #light img {
+                width: 135%;
+                height: 50%;
+                transform: rotate(90deg);
+                position: absolute;
+                top: 25%;
+                left: -18%;
+            }
+            /* 关于我们 */
+            #bg-3 {
+                left: 1.5%;
+                top: 50px;
+            }
+            #gywm-bt {
+                padding: 0 5% 0 5%;
+            }
+            #gywm-p {
+                font-size: 14px;
+            }
+            #gywm-wwxl {
+                padding: 0 5% 0 5%;
+                height: 15%;
+            }
+            #gywm-xbt {
+                width: 100%;
+                text-align: center;
+            }
+            #gywm-xbt .wxxl-xbt {
+                margin-top: 0;
+            }
+            #wxxl-xbt {
+                font-size: 14px;
+                /* cursor: pointer; */
+                margin-top: 1%;
+            }
+            #gywm-tz {
+                padding: 0 5% 0 5%;
+                height: 65%;
+            }
+            #gywm-lxwm {
+                padding: 0 5% 0 5%;
+            }
+            #gywm-lxwm .ditu {
+                width: 100%;
+                height: 300px;
+            }
+            #yclx {
+                float: inherit;
+                padding-left: 0;
+                width: 100%;
+                font-size: 14px;
+            }
+            #lx-li {
+                margin-top: 5%;
+            }
+            #gywm-dbt {
+                font-size: 18px;
+                height: 40px;
+                line-height: 40px;
+            }
+        }
+
+        @media screen and (min-width: 1075px) and (max-width: 1649px) {
+            #gywm-xbt {
+                width: 100%;
+                text-align: center;
+            }
+            #yclx {
+                padding-left: 20px;
+                font-size: 18px;
+            }
+            #dbox .dbox1-p {
+                line-height: 60px;
+            }
+            #dbox .dbox4-s {
+                line-height: 70px;
+            }
+            .right-li {
+                width: 31%;
+            }
+            #last {
+                width: 40%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 在这里控制全局的页面，定义div的id是"global" -->
+    <div id="global">
+        <!-- <div id="heading"><p align="right"><br><font size="4" color="#2FA0EC">山东的人工智能产品网站&nbsp;</font></p></div> -->
+        <div id="content_body">
+            <div id="banner">
+                <img src="./static/img/logo.png" id="banner-img" />
+                <p id="banner-p">人工智能创新工作室</p>
+                <img src="../static/img/phonedim.png" title="扫一扫打开手机版" id="banner-img" style="float: right;padding: 10px;" />
+            </div>
+
+            <!-- Flatline -->
+            <!-- Background Image -->
+            <div class="colorful-tab-wrapper" id="colorful-background-image">
+                <!-- 导航 -->
+                <ul class="colorful-tab-menu">
+                    <li class="colorful-tab-menu-item active" tab-background="./static/img/tab1.jpg"><a href="#bg-0" onclick="javascript:window.location.replace(document.referrer);">首页</a></li>
+                    <li class="colorful-tab-menu-item" tab-background="./static/img/tab2.jpg"><a href="#bg-1">案例分享</a>
+                    </li>
+                    <li class="colorful-tab-menu-item" tab-background="./static/img/tab3.jpg"><a href="#bg-2">demo示例</a>
+                    </li>
+                    <li class="colorful-tab-menu-item" tab-background="./static/img/tab4.jpg"><a href="#bg-3">关于我们</a>
+                    </li>
+                </ul>
+                <div class="colorful-tab-container" style="height:100%">
+                    <!-- 首页 -->
+                    <div class="colorful-tab-content active" id="bg-0" style="height:100%;overflow: hidden;">
+                        <section class="section-wrap">
+                            <!-- 模块一 -->
+                            <div class="section section-1">
+                                <div class="title active">
+                                    <div id="dbox">
+                                        <span class="dbox1-s">关于本网站</span>
+                                        <p class="dbox1-p">一个技术交流、资料分享、在线体验的网站</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 模块二 -->
+                            <div class="section section-2" style="margin-top: 10px">
+                                <div class="title active">
+                                    <div id="dbox">
+                                        <!-- <span style="font-size: px;margin-top: 300px;display: block;font-weight: bold">关于本工作室</span> -->
+                                        <h2 id="bt">定位</h2>
+                                        <p id="bt1" class="dw">
+                                            ➤&nbsp;&nbsp;业务融合与创新：在现有的业务应用系统、产品中逐步融入智能元素，催生创新型、智能型应用</p>
+                                        <p id="bt1" style="line-height: 200%">➤&nbsp;&nbsp;服务输出：结合工作室业务领域建设智能化服务体系</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 模块三 -->
+                            <div class="section section-3" style="margin-top: 10px">
+                                <div class="title active">
+                                    <div id="dbox">
+                                        <!-- <span style="font-size: px;margin-top: 300px;display: block;font-weight: bold">关于本工作室</span> -->
+                                        <h2 id="bt">目标</h2>
+                                        <p id="bt1" class="dbox3-p1">
+                                            ➤&nbsp;&nbsp;图像处理、自然语言处理、机器学习方面积累与创新</p>
+                                        <p id="bt1" class="dbox3-p2">
+                                            ➤&nbsp;&nbsp;人工智能领域自主产品研发</p>
+                                        <p id="bt1" class="dbox3-p2">➤&nbsp;&nbsp;提供咨询、解决方案
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 模块四 -->
+                            <div class="section section-4" style="margin-top: 10px">
+                                <div class="title active">
+                                    <div id="dbox" onclick="window.open( 'http://www.qzsoft.cn/qizhi/','_blank')">
+                                        <span class="dbox4-s">创新工作室期待与您合作</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <ul class="section-btn">
+                            <li class="on"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <!-- <li></li> -->
+                        </ul>
+                        <div class="arrow">&laquo;</div>
+                    </div>
+                    <!-- 案例分享 -->
+                    <div class="colorful-tab-content" id="bg-1" style="width: 100%">
+                        <div id="div_jczy"><object type="text/html" data="/blog/" width="100%" height="8000px"></object>
+                        </div>
+                    </div>
+
+                    <!-- demo示例 -->
+                    <div class="colorful-tab-content" id="bg-2">
+                        <div class="tabs-vertical" style="height: 1500px;max-width: 97%;margin:0;box-shadow: none">
+                            <div id="outer-container" style="box-shadow: none">
+                                <div class="tab-content-active" id="inner-container">
+                                    <div id="demo-zt">
+                                        <p id="demo-bt">
+                                            <i class="fa fa-image fa-lg" id="icon"></i>图像处理</p>
+                                        <div class="pl">
+                                            <ul style="width: 100%;">
+                                                <!-- <i class="fa fa-bullhorn fa-lg" id="icon-left"></i> -->
+                                                <li class="right-li">
+                                                    <div id="li-bt" class="cardContainer" onclick="openDialog('./static/img/物体检测.gif')">
+                                                        <span id="demoxbt">目标检测<i class="fa fa-angle-double-right fa-lg"
+                                                                id="icon-right"></i></span>
+                                                    </div>
+                                                </li>
+                                                <li class="right-li">
+                                                    <div id="li-bt" class="cardContainer" onclick="openDialog('./static/img/表格识别.gif')">
+
+                                                        <span id="demoxbt">表格OCR识别<i class="fa fa-angle-double-right fa-lg"
+                                                                id="icon-right"></i></span>
+                                                    </div>
+                                                </li>
+                                                <li class="right-li">
+                                                    <div id="li-bt" class="cardContainer" onclick="openDialog('./static/img/发票识别.gif')">
+
+                                                        <span id="demoxbt">发票OCR识别<i class="fa fa-angle-double-right fa-lg"
+                                                                id="icon-right"></i></span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <p id="demo-bt">
+                                            <i class="fa fa-language fa-lg" id="icon"></i>自然语言分析</p>
+                                        <div class="pl" id="demo-yyfx">
+                                            <ul style="width: 100%;">
+                                                <li class="right-li">
+                                                    <div id="li-bt" class="cardContainer" onclick="openDialog('./static/img/分词.gif')">
+                                                        <span id="demoxbt">汉语分词及词性标注<i
+                                                                class="fa fa-angle-double-right fa-lg"
+                                                                id="icon-right"></i></span>
+                                                    </div>
+
+                                                </li>
+                                                <li class="right-li">
+                                                    <div id="li-bt" class="cardContainer" onclick="openDialog('./static/img/命名实体识别.gif')">
+                                                        <span id="demoxbt">命名实体识别<i
+                                                                class="fa fa-angle-double-right fa-lg"
+                                                                id="icon-right"></i></span>
+                                                    </div>
+
+                                                </li>
+                                                <li class="right-li">
+                                                    <div id="li-bt" class="cardContainer" onclick="openDialog('./static/img/词语语义相似度分析.gif')">
+                                                        <span id="demoxbt">词语语义相似度分析<i
+                                                                class="fa fa-angle-double-right fa-lg"
+                                                                id="icon-right"></i></span>
+                                                    </div>
+
+                                                </li>
+                                                <li class="right-li">
+                                                    <div id="li-bt" class="cardContainer" onclick="openDialog('./static/img/文本相似度分析.gif')">
+                                                        <span id="demoxbt">文本相似度分析<i
+                                                                class="fa fa-angle-double-right fa-lg"
+                                                                id="icon-right"></i></span>
+                                                    </div>
+
+                                                </li>
+                                                <li class="right-li">
+                                                    <div id="li-bt" class="cardContainer" onclick="openDialog('./static/img/文本分类.gif')">
+                                                        <span id="demoxbt">文本分类<i class="fa fa-angle-double-right fa-lg"
+                                                                id="icon-right"></i></span>
+                                                    </div>
+
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                        <p id="demo-bt">
+                                            <i class="fa fa-adjust fa-lg" id="icon"></i>知识图谱</p>
+                                        <div class="pl">
+                                            <ul style="width: 100%;">
+                                                <li class="right-li">
+                                                    <div id="li-bt" class="cardContainer" onclick="openDialog('./static/img/图数据库.gif')">
+                                                        <span id="demoxbt">图数据库<i class="fa fa-angle-double-right fa-lg"
+                                                                id="icon-right"></i></span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <p id="demo-bt">
+                                            <i class="fa fa-handshake-o fa-lg" id="icon"></i>AI-master学习平台</p>
+                                        <div class="pl">
+                                            <ul style="width: 100%;">
+                                                <li class="right-li" id="last">
+                                                    <div id="li-bt" class="cardContainer" onclick="openDialog('./static/img/aimaster.gif')">
+                                                        <span id="demoxbt">AIer深度学习代码生成平台<i
+                                                                class="fa fa-angle-double-right fa-lg"
+                                                                id="icon-right"></i></span>
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 关于我们 -->
+                    <div class="colorful-tab-content" id="bg-3">
+                        <div class="tabs-vertical" style="background:#fff;height:1500px;max-width: 97%;margin:0;box-shadow: none;">
+                            <!-- <div id="demo-bt"> -->
+                            <div id="gywm-bt">
+                                <p id="gywm-dbt">
+                                    工作室介绍</p>
+                                <p style="margin-top:10px;" id="gywm-p">
+                                    创新工作室是由大学生自发组织。
+                                </p>
+                                <p id="gywm-p">
+                                    成立以来，先后获得了资质认证，取得软件著作权，完成软件产品登记。
+                                </p>
+                                <p id="gywm-p">
+                                    工作室通过不断创新和完善，促进工作室持续、稳定、快速、健康发展。
+                                </p>
+
+                            </div>
+                            <div id="gywm-wwxl">
+                                <p id="gywm-dbt">
+                                    微信系列报道</p>
+                                <div id="gywm-tz">
+                                    <div id="gywm-xbt">
+                                        <div id="wxxl-xbt" class="wxxl-xbt" onclick="window.open( 'https:/','_blank')">
+                                            <i class="fa fa-hand-o-right" style="margin-right:10px;"></i>创新工作室2019年7月份简报
+                                        </div>
+                                        <div id="wxxl-xbt" onclick="window.open( 'https://mp.weixiFURg','_blank')">
+                                            <i class="fa fa-hand-o-right" style="margin-right:10px;"></i>创新工作室2019年8月份简报
+                                        </div>
+                                        <div id="wxxl-xbt" onclick="window.open( 'https://mp.weixin.qq.com/s/DuQ','_blank')">
+                                            <i class="fa fa-hand-o-right" style="margin-right:10px;"></i>创新工作室2019年9月份简报
+                                        </div>
+                                        <div id="wxxl-xbt" onclick="window.open( 'https://mp.weixin.qq.com/s/8AReg_dg','_blank')">
+                                            <i class="fa fa-hand-o-right" style="margin-right:10px;"></i>创新工作室2019年10月份简报
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="gywm-lxwm" style="margin-top:5%;">
+                                <p id="gywm-dbt">
+                                    联系我们</p>
+
+                                <div id="dituContent" class="ditu">
+                                </div>
+
+                                <div id="yclx">
+                                    <ul>
+                                        <li id="lx-li" style="margin-top:10px;">
+                                            <i class="fa fa-phone fa-lg" style="margin-right:10px;color: rgba(0, 47, 104, 0.8)"></i>联系电话:
+                                        </li>
+                                        <li id="lx-li">
+                                            <i class="fa fa-envelope fa-lg" style="margin-right:10px;color: rgba(0, 47, 104, 0.8)"></i>邮编:
+                                        </li>
+                                        <li id="lx-li">
+                                            <i class="fa fa-fax fa-lg" style="margin-right:10px;color: rgba(0, 47, 104, 0.8)"></i>传真
+                                        </li>
+                                        <li id="lx-li">
+                                            <i class="fa fa-home fa-lg" style="margin-right:10px;color: rgba(0, 47, 104, 0.8)"></i>工作室地址:
+                                        </li>
+                                        <li id="lx-li">
+                                            <i class="fa fa-clock-o fa-lg" style="margin-right:10px;color: rgba(0, 47, 104, 0.8)"></i>工作时间:周一至周五8:30-17:30
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!-- <div
+                                    style="float: left;width:50%;height:400px;background-image: url(static/images/company.jpg);background-size: 100% 100%;">
+                                </div> -->
+
+                            </div>
+                            <!-- <div style="height: 500px;background: #fff;margin: 0;padding: 0;"></div> -->
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div id="light" class="white_content">
+
+        </div>
+        <div id="fade" class="black_overlay" onclick="closeDialog()"></div>
+</body>
+<script src="./static/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="./static/js/colorfulTab.min.js"></script>
+<script src="./static/js/swiper.min.js"></script>
+<script type="text/javascript">
+    $(function() {})
+
+    function openDialog(gifstr) {
+        document.getElementById('light').style.display = 'block';
+        document.getElementById('fade').style.display = 'block';
+        // document.getElementById('light').innerHTML = "<img src='" + gifstr + "' style='width:100%;height:100%;' alt='' />"
+        document.getElementById('light').innerHTML = "<img src='" + gifstr + "'' alt='' />"
+
+    }
+
+    function closeDialog() {
+        document.getElementById('light').style.display = 'none';
+        document.getElementById('fade').style.display = 'none'
+    }
+    $(document).ready(function() {
+
+        $("#colorful").colorfulTab();
+
+        $("#colorful-elliptic").colorfulTab({
+            theme: "elliptic"
+        });
+
+        $("#colorful-flatline").colorfulTab({
+            theme: "flatline"
+        });
+
+        $("#colorful-background-image").colorfulTab({
+            theme: "flatline",
+            backgroundImage: "true",
+            overlayColor: "#002F68",
+            overlayOpacity: "0.8"
+        });
+
+
+        // 首页swiper
+        ! function(a) {
+            "function" == typeof define && define.amd ? define(["jquery"], a) : "object" == typeof exports ? module.exports = a : a(jQuery)
+        }(function(a) {
+            function b(b) {
+                var g = b || window.event,
+                    h = i.call(arguments, 1),
+                    j = 0,
+                    l = 0,
+                    m = 0,
+                    n = 0,
+                    o = 0,
+                    p = 0;
+                if (b = a.event.fix(g), b.type = "mousewheel", "detail" in g && (m = -1 * g.detail), "wheelDelta" in g && (m = g.wheelDelta), "wheelDeltaY" in g && (m = g.wheelDeltaY), "wheelDeltaX" in g && (l = -1 * g.wheelDeltaX), "axis" in g && g.axis === g.HORIZONTAL_AXIS && (l = -1 * m, m = 0), j = 0 === m ? l : m, "deltaY" in g && (m = -1 * g.deltaY, j = m), "deltaX" in g && (l = g.deltaX, 0 === m && (j = -1 * l)), 0 !== m || 0 !== l) {
+                    if (1 === g.deltaMode) {
+                        var q = a.data(this, "mousewheel-line-height");
+                        j *= q, m *= q, l *= q
+                    } else if (2 === g.deltaMode) {
+                        var r = a.data(this, "mousewheel-page-height");
+                        j *= r, m *= r, l *= r
+                    }
+                    if (n = Math.max(Math.abs(m), Math.abs(l)), (!f || f > n) && (f = n, d(g, n) && (f /= 40)), d(g, n) && (j /= 40, l /= 40, m /= 40), j = Math[j >= 1 ? "floor" : "ceil"](j / f), l = Math[l >= 1 ? "floor" : "ceil"](l / f), m = Math[m >= 1 ? "floor" : "ceil"](m / f), k.settings.normalizeOffset && this.getBoundingClientRect) {
+                        var s = this.getBoundingClientRect();
+                        o = b.clientX - s.left, p = b.clientY - s.top
+                    }
+                    return b.deltaX = l, b.deltaY = m, b.deltaFactor = f, b.offsetX = o, b.offsetY = p, b.deltaMode = 0, h.unshift(b, j, l, m), e && clearTimeout(e), e = setTimeout(c, 200), (a.event.dispatch || a.event.handle).apply(this, h)
+                }
+            }
+
+            function c() {
+                f = null
+            }
+
+            function d(a, b) {
+                return k.settings.adjustOldDeltas && "mousewheel" === a.type && b % 120 === 0
+            }
+            var e, f, g = ["wheel", "mousewheel", "DOMMouseScroll", "MozMousePixelScroll"],
+                h = "onwheel" in document || document.documentMode >= 9 ? ["wheel"] : ["mousewheel", "DomMouseScroll", "MozMousePixelScroll"],
+                i = Array.prototype.slice;
+            if (a.event.fixHooks)
+                for (var j = g.length; j;) a.event.fixHooks[g[--j]] = a.event.mouseHooks;
+            var k = a.event.special.mousewheel = {
+                version: "3.1.12",
+                setup: function() {
+                    if (this.addEventListener)
+                        for (var c = h.length; c;) this.addEventListener(h[--c], b, !1);
+                    else this.onmousewheel = b;
+                    a.data(this, "mousewheel-line-height", k.getLineHeight(this)), a.data(this, "mousewheel-page-height", k.getPageHeight(this))
+                },
+                teardown: function() {
+                    if (this.removeEventListener)
+                        for (var c = h.length; c;) this.removeEventListener(h[--c], b, !1);
+                    else this.onmousewheel = null;
+                    a.removeData(this, "mousewheel-line-height"), a.removeData(this, "mousewheel-page-height")
+                },
+                getLineHeight: function(b) {
+                    var c = a(b),
+                        d = c["offsetParent" in a.fn ? "offsetParent" : "parent"]();
+                    return d.length || (d = a("body")), parseInt(d.css("fontSize"), 10) || parseInt(c.css("fontSize"), 10) || 16
+                },
+                getPageHeight: function(b) {
+                    return a(b).height()
+                },
+                settings: {
+                    adjustOldDeltas: !0,
+                    normalizeOffset: !0
+                }
+            };
+            a.fn.extend({
+                mousewheel: function(a) {
+                    return a ? this.bind("mousewheel", a) : this.trigger("mousewheel")
+                },
+                unmousewheel: function(a) {
+                    return this.unbind("mousewheel", a)
+                }
+            })
+        });
+        var i = 0;
+        var $btn = $('.section-btn li'),
+            $wrap = $('.section-wrap'),
+            $arrow = $('.arrow');
+        /*当前页面赋值*/
+        function up() {
+            i++;
+            if (i == $btn.length) {
+                i = 0
+            };
+        }
+
+        function down() {
+            i--;
+            if (i < 0) {
+                i = $btn.length - 1
+            };
+        }
+        /*页面滑动*/
+        function run() {
+            $btn.eq(i).addClass('on').siblings().removeClass('on');
+            $wrap.attr("class", "section-wrap").addClass(function() {
+                return "put-section-" + i;
+            }).find('.section').eq(i).find('.title').addClass('active');
+        };
+        /*右侧按钮点击*/
+        $btn.each(function(index) {
+            $(this).click(function() {
+                i = index;
+                run();
+            })
+        });
+        /*翻页按钮点击*/
+        $arrow.one('click', go);
+
+        function go() {
+            up();
+            run();
+            setTimeout(function() {
+                $arrow.one('click', go)
+            }, 1000)
+        };
+        /*响应鼠标*/
+        $wrap.one('mousewheel', mouse_);
+
+        function mouse_(event) {
+            if (event.deltaY < 0) {
+                up()
+            } else {
+                down()
+            }
+            run();
+            setTimeout(function() {
+                $wrap.one('mousewheel', mouse_)
+            }, 1000)
+        };
+        /*响应键盘上下键*/
+        $(document).one('keydown', k);
+
+        function k(event) {
+            var e = event || window.event;
+            var key = e.keyCode || e.which || e.charCode;
+            switch (key) {
+                case 38:
+                    down();
+                    run();
+                    break;
+                case 40:
+                    up();
+                    run();
+                    break;
+            };
+            setTimeout(function() {
+                $(document).one('keydown', k)
+            }, 1000);
+        }
+
+        // demo示例模块
+        // $(document).ready(function() {
+        // var widget = $('.tabs-vertical');
+        // var tabs = widget.find('ul a'),
+        //     content = widget.find('.tabs-content-placeholder > div');
+        // tabs.on('click', function (e) {
+        //     e.preventDefault();
+        //     // Get the data-index attribute, and show the matching content div
+        //     var index = $(this).data('index');
+        //     tabs.removeClass('tab-active');
+        //     content.removeClass('tab-content-active');
+        //     $(this).addClass('tab-active');
+        //     content.eq(index).addClass('tab-content-active');
+        // });
+
+    });
+</script>
+
+<!-- 地图 -->
+<script type="text/javascript">
+    function initMap() {
+        createMap();
+        setMapEvent();
+        addMapControl();
+        addMarker();
+    }
+
+    function createMap() {
+        var map = new BMap.Map("dituContent");
+     //   var point = new BMap.Point(117.133308, 36.685677);
+
+        var point = new BMap.Point(117.1240795800,36.2008714000);
+        map.centerAndZoom(point, 17);
+        window.map = map;
+    }
+
+    function setMapEvent() {
+        map.enableDragging();
+        map.enableScrollWheelZoom();
+        map.enableDoubleClickZoom();
+        map.enableKeyboard();
+    }
+
+    function addMapControl() {
+
+        var ctrl_nav = new BMap.NavigationControl({
+            anchor: BMAP_ANCHOR_TOP_LEFT,
+            type: BMAP_NAVIGATION_CONTROL_LARGE
+        });
+        map.addControl(ctrl_nav);
+        var ctrl_ove = new BMap.OverviewMapControl({
+            anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+            isOpen: 1
+        });
+        map.addControl(ctrl_ove);
+        var ctrl_sca = new BMap.ScaleControl({
+            anchor: BMAP_ANCHOR_BOTTOM_LEFT
+        });
+        map.addControl(ctrl_sca);
+    }
+    var markerArr = [{
+        title: "创新工作室",
+        content: "泰安市泰山区",
+        point: "117.1176730000|36.1945100000",
+        isOpen: 0,
+        icon: {
+            w: 21,
+            h: 21,
+            l: 0,
+            t: 0,
+            x: 6,
+            lb: 5
+        }
+    }];
+
+    function addMarker() {
+        for (var i = 0; i < markerArr.length; i++) {
+            var json = markerArr[i];
+            var p0 = json.point.split("|")[0];
+            var p1 = json.point.split("|")[1];
+            var point = new BMap.Point(p0, p1);
+            var iconImg = createIcon(json.icon);
+            var marker = new BMap.Marker(point, {
+                icon: iconImg
+            });
+            var iw = createInfoWindow(i);
+            var label = new BMap.Label(json.title, {
+                "offset": new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
+            });
+            marker.setLabel(label);
+            map.addOverlay(marker);
+            label.setStyle({
+                borderColor: "#808080",
+                color: "#333",
+                cursor: "pointer"
+            });
+
+            (function() {
+                var index = i;
+                var _iw = createInfoWindow(i);
+                var _marker = marker;
+                _marker.addEventListener("click", function() {
+                    this.openInfoWindow(_iw);
+                });
+                _iw.addEventListener("open", function() {
+                    _marker.getLabel().hide();
+                })
+                _iw.addEventListener("close", function() {
+                    _marker.getLabel().show();
+                })
+                label.addEventListener("click", function() {
+                    _marker.openInfoWindow(_iw);
+                })
+                if (!!json.isOpen) {
+                    label.hide();
+                    _marker.openInfoWindow(_iw);
+                }
+            })()
+        }
+    }
+
+    function createInfoWindow(i) {
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>" + json.content + "</div>");
+        return iw;
+    }
+
+    function createIcon(json) {
+        var icon = new BMap.Icon("http://map.baidu.com/image/us_mk_icon.png", new BMap.Size(json.w, json.h), {
+            imageOffset: new BMap.Size(-json.l, -json.t),
+            infoWindowOffset: new BMap.Size(json.lb + 5, 1),
+            offset: new BMap.Size(json.x, json.h)
+        })
+        return icon;
+    }
+
+    initMap();
+</script>
+
+</html>
